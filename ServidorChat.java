@@ -7,7 +7,7 @@ public class ServidorChat {
     ServerSocket socketServidor = null;
     boolean listening = true;
     Socket socketCliente = null;
-    int
+   
 
     try {
         socketServidor = new ServerSocket(4444);

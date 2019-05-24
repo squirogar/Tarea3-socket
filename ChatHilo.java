@@ -4,19 +4,39 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class ChatHilo extends Thread implements Observer {
+
+   
+
+   private  boolean flag_alias=true;
     private Socket socketCliente;
     private String nombre;
     private Mensaje mensaje;
     private PrintWriter out = null;
     private BufferedReader in = null;
+    private static ArrayList<String> alias= new ArrayList<String>();
     public ChatHilo(Socket socketCliente, Mensaje mensaje) {
         this.socketCliente = socketCliente; // le pasamos el socket del cliente
         this.mensaje = mensaje; // le pasamos el objeto mensaje que es observable
     }
 
-    @Override
+ /**
+     * @param aAlias the alias to set
+     */
+    public synchronized static boolean setAlias(String nombre) {
+        if(!alias.contains(nombre)){
+        alias.add(nombre);
+            System.out.println("alias asignado correctamente");
+        return true;
+        }else{
+            System.out.println("alias ya existe, intente nuevamente");
+            return false;
+        }
+         
+    }
+            @Override
     public void run() {
         try {
             //Para enviar mensajes a cliente
@@ -30,7 +50,11 @@ public class ChatHilo extends Thread implements Observer {
             out.println("Escriba su nombre");
             try {
                 //---------!comprobar que el alias no existe en el chat-------
+             while(flag_alias)   {
                 nombre = in.readLine();
+                flag_alias = setAlias(nombre); 
+                
+             }
                 //------------------------------------------------------------
                 //Se agrega este hilo a la lista de observador del objeto mensaje
                 mensaje.addObserver(this);
@@ -81,4 +105,5 @@ public class ChatHilo extends Thread implements Observer {
         out.println(arg.toString());
     }
 
+}
 }

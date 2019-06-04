@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
-
-public class Clientechat {
+import java.util.*;
+public class ClienteChat {
 
     public static void main(String[] args) throws IOException {
 
@@ -31,16 +31,19 @@ public class Clientechat {
                 clienteSocket.getOutputStream()), true);
             //Para recibir mensajes del cliente
           BufferedReader  in = new BufferedReader(new InputStreamReader(
-        clienteSocket.getInputStream(), "UTF-8"));
-
+        clienteSocket.getInputStream()));
+Scanner sc = new Scanner(System.in);
         while (true) {
-            String a = in.readLine();
-            if (a != null && !a.equals("chao")) {
-                out.println("ggg");
-                System.out.println(a);
-            } else {
-                iterar = false;
-            }
+            try {
+                String mensajeServidor = in.readLine();
+                    System.out.println("mensaje servidor: " + mensajeServidor);   
+            } catch(IOException ioe) {
+                System.out.println("Error de mensaje");
+            } catch(NullPointerException npe) {
+                System.out.println("NULLLLL");
+                
+            }       
+            out.println(sc.nextLine());  
         }
      
     }

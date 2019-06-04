@@ -25,9 +25,9 @@ public class ChatHilo extends Thread implements Observer {
     //Evita que se elija un alias que este siendo ocupado por otro cliente
     private synchronized boolean setAlias(String nombre, PrintWriter out) {
         if(!alias.contains(nombre)){
-        alias.add(nombre);
+            alias.add(nombre);
             out.println("alias asignado correctamente");
-        return false;
+            return false;
         }
         out.println("el alias ingresado esta siendo ocupado por otra persona "
             + "dentro del chat. Intente con otro");

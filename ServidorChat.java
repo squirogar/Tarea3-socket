@@ -14,7 +14,7 @@ public class ServidorChat {
 			socketServidor = new ServerSocket(puerto);
 			System.out.println("Se creo socket del servidor en el puerto " + puerto);
 		} catch (IOException e) {
-			System.out.println("Error, el puerto" + puerto + "está siendo ocupado por otra"
+			System.out.println("Error, el puerto " + puerto + " está siendo ocupado por otra"
 				+ "aplicacion");
 			//sale si hay un error
 			System.exit(1);

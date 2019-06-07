@@ -18,9 +18,11 @@ Esta aplicación consiste en una sala de chat comunitaria. Los usuarios se conec
 en donde ip, corresponde a la dirección ip del servidor y el numero del puerto debe ser igual al numero de puerto del servidor para que funcione.
 
 - Servidor: Para ejecutar el servicio de chat en la maquina servidor, se debe ingresar lo siguiente en la consola (cmd en Windows, terminal en Linux):
+
     javac ServidorChat.java
     
     java ServidorChat numero_puerto
+
 El numero_puerto es el puerto donde se llevará a cabo la conexion
 
 3. Cómo utilizar la aplicación:

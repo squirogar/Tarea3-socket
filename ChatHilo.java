@@ -113,7 +113,7 @@ public class ChatHilo extends Thread implements Observer {
     es null)*/
     @Override
     public void update(Observable o, Object arg) {
-        out.println("\n" + arg.toString());
+        out.println(arg.toString());
     }
 
     //Cierra streams y socket

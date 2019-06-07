@@ -1,5 +1,0 @@
-problemas conocidos:
-1. si se cae el servidor, la aplicacion del cliente sigue como si nada
-2. stream queda ocupado en lectura/escritura -- SOLUCIONADO
-3. cuando se cae el cliente sale null en el servidor y no puede aceptar mas conexiones y ademas
-los demas clientes no pueden volver a usar el chat

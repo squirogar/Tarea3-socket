@@ -25,8 +25,6 @@ public class ServidorChat {
 		Socket socketCliente = null;
 		Mensaje mensaje = new Mensaje();
 		
-		cierraServicio();
-
 		//El servidor se queda eternamente escuchando peticiones
 		while(true) {
 			try {
@@ -55,18 +53,5 @@ public class ServidorChat {
 		return Integer.valueOf(args[0]);
 	}
 
-	private static void cierraServicio() {
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			public void run() {
-				System.out.println("Cerrando servicio ...");
-				try{
-					socketServidor.close();
-					System.out.println("Servicio cerrado.");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 }
